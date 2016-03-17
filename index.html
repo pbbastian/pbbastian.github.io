@@ -20,7 +20,7 @@
         }
         
         .picture {
-            width: 100%;
+            max-width: 100%;
         }
         
         p {
@@ -33,12 +33,20 @@
     <div class="container">
         <h1>pbbastian.github.io</h1>
         <p>
-            This page contains results of projects from various courses I've attended at DTU. Contact me if you're interested in the source code :)
+            This page contains results of projects from various courses I've attended at DTU. Contact me if you're interested in the source code or more renderings :)
             Also do check out the WebGL stuff available at
             <a href="http://www.student.dtu.dk/~s070808/02561/02561.html">http://www.student.dtu.dk/~s070808/02561/02561.html</a>.
         </p>
+        <h3>Contents:</h3>
+        <ul>
+            <li><a href="#realtimegraphics">02564 Real-time graphics</a></li>
+            <li><a href="#rendering">02562 Rendering</a></li>
+        </ul>
         
-        <h2>02564 Real-time graphics</h2>
+        <a name="realtimegraphics"><h2>02564 Real-time graphics</h2></a>
+        <p>
+            In this course we implemented a number of real-time effects in C++ and GLSL.
+        </p>
         
         <h3>Alchemy Ambient Occlusion</h3>
         <img class="picture" src="images/02564/W6-AO.PNG" />
@@ -58,6 +66,22 @@
         
         <h3>Single-pass wireframe shader</h3>
         <img class="picture" src="images/02564/W1-Wireframe.png" />
+        
+        <a name="rendering"><h2>02562 Rendering</h2></a>
+        <p>In this course we implement a variety of ray-tracing techniques using C++.</p>
+        
+        <h3>Ambient occlusion</h3>
+        <p>Unfortunately not the most optimal scene for this, but due to time restrictions we were not able to get it working with arbitrary scenes.</p>
+        <img class="picture" src="images/02562/ProperSkyLight.PNG" />
+        
+        <h3>Photon mapping</h3>
+        <img class="picture" src="images/02562/PhotonMapping.PNG" />
+        
+        <h3>Absorption</h3>
+        <img class="picture" src="images/02562/Absorption.PNG" />
+        
+        <h3>Radiosity</h3>
+        <img class="picture" src="images/02562/Radiosity.PNG" />
     </div>
     
 </body>
