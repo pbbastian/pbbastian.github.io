@@ -5,27 +5,83 @@
     <meta charset="UTF-8">
     <title>pbbastian.github.io</title>
     <style>
+        /*! system-font.css v1.1.0 | CC0-1.0 License | github.com/jonathantneal/system-font-face */
+
+        @font-face {
+            font-family: system;
+            font-style: normal;
+            font-weight: 300;
+            src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+        }
+
+        @font-face {
+            font-family: system;
+            font-style: italic;
+            font-weight: 300;
+            src: local(".SFNSText-LightItalic"), local(".HelveticaNeueDeskInterface-Italic"), local(".LucidaGrandeUI"), local("Ubuntu Light Italic"), local("Segoe UI Light Italic"), local("Roboto-LightItalic"), local("DroidSans"), local("Tahoma");
+        }
+
+        @font-face {
+            font-family: system;
+            font-style: normal;
+            font-weight: 400;
+            src: local(".SFNSText-Regular"), local(".HelveticaNeueDeskInterface-Regular"), local(".LucidaGrandeUI"), local("Ubuntu"), local("Segoe UI"), local("Roboto-Regular"), local("DroidSans"), local("Tahoma");
+        }
+
+        @font-face {
+            font-family: system;
+            font-style: italic;
+            font-weight: 400;
+            src: local(".SFNSText-Italic"), local(".HelveticaNeueDeskInterface-Italic"), local(".LucidaGrandeUI"), local("Ubuntu Italic"), local("Segoe UI Italic"), local("Roboto-Italic"), local("DroidSans"), local("Tahoma");
+        }
+
+        @font-face {
+            font-family: system;
+            font-style: normal;
+            font-weight: 500;
+            src: local(".SFNSText-Medium"), local(".HelveticaNeueDeskInterface-MediumP4"), local(".LucidaGrandeUI"), local("Ubuntu Medium"), local("Segoe UI Semibold"), local("Roboto-Medium"), local("DroidSans-Bold"), local("Tahoma Bold");
+        }
+
+        @font-face {
+            font-family: system;
+            font-style: italic;
+            font-weight: 500;
+            src: local(".SFNSText-MediumItalic"), local(".HelveticaNeueDeskInterface-MediumItalicP4"), local(".LucidaGrandeUI"), local("Ubuntu Medium Italic"), local("Segoe UI Semibold Italic"), local("Roboto-MediumItalic"), local("DroidSans-Bold"), local("Tahoma Bold");
+        }
+
+        @font-face {
+            font-family: system;
+            font-style: normal;
+            font-weight: 700;
+            src: local(".SFNSText-Bold"), local(".HelveticaNeueDeskInterface-Bold"), local(".LucidaGrandeUI"), local("Ubuntu Bold"), local("Roboto-Bold"), local("DroidSans-Bold"), local("Segoe UI Bold"), local("Tahoma Bold");
+        }
+
+        @font-face {
+            font-family: system;
+            font-style: italic;
+            font-weight: 700;
+            src: local(".SFNSText-BoldItalic"), local(".HelveticaNeueDeskInterface-BoldItalic"), local(".LucidaGrandeUI"), local("Ubuntu Bold Italic"), local("Roboto-BoldItalic"), local("DroidSans-Bold"), local("Segoe UI Bold Italic"), local("Tahoma Bold");
+        }
+
         body {
             margin: 0;
             padding: 30px;
-            font-family: "Helvetica", "Arial", sans-serif;
+            font-family: system, "Segoe UI", Tahoma;
             -webkit-hyphens: auto;
             -moz-hyphens: auto;
             -ms-hyphens: auto;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .picture {
             max-width: 100%;
         }
-        
-        p {
-            
-        }
+
+        p {}
     </style>
 </head>
 
@@ -33,8 +89,7 @@
     <div class="container">
         <h1>pbbastian.github.io</h1>
         <p>
-            This page contains results of projects from various courses I've attended at DTU. Contact me if you're interested in the source code or more renderings :)
-            Also do check out the WebGL stuff available at
+            This page contains results of projects from various courses I've attended at DTU. Contact me if you're interested in the source code or more renderings :) Also do check out the WebGL stuff available at
             <a href="http://www.student.dtu.dk/~s070808/02561/02561.html">http://www.student.dtu.dk/~s070808/02561/02561.html</a>.
         </p>
         <h3>Contents:</h3>
@@ -42,49 +97,84 @@
             <li><a href="#realtimegraphics">02564 Real-time graphics</a></li>
             <li><a href="#rendering">02562 Rendering</a></li>
         </ul>
-        
+
+        <a name="pbr"><h2>02941 Physically Based Rendering</h2></a>
+        <p>
+          Building on the course 02562 Rendering, this course introduces a wide
+          variety of concepts from the world of physically based rendering.
+          Most concepts were implemented in a path-tracer, while some were also
+          implemented in a photon mapping renderer. I've extracted the nicer
+          renders, but you're welcome to check out the
+          <a href="02941_Report.pdf">whole report</a>.
+        </p>
+
+        <h3>Microfacet models</h3>
+        <p>
+          The Torrence-Sparrow model using the Blinn microfacet distribution implemented in a path-tracer.
+          Furthermore support for complex indices of refraction were implemented, giving the proper gold color.
+        </p>
+        <img class="picture" src="images/02941/microfacet.png" />
+
+        <h3>Reflection, refraction and caustics</h3>
+        <img class="picture" src="images/02941/SplitSpheres.png" />
+
+        <h3>Sub-surface and volumetric rendering</h3>
+        <p>
+          We implemented sub-surface scattering and used it to make a marble material.
+        </p>
+        <img class="picture" src="images/02941/subsurface.png" />
+        <p>
+          We also implemented volumetric rendering. The image below should also be marble,
+          despite the clearly visible differences to the image above.
+          This stems from the fact that the above method is "merely" an approximation,
+          while volumetric rendering is more physically correct.
+          The downside is absolutely terrible render times, although much work
+          could be done to improve that.
+        </p>
+        <img class="picture" src="images/02941/ssVolume.png" />
+
         <a name="realtimegraphics"><h2>02564 Real-time graphics</h2></a>
         <p>
             In this course we implemented a number of real-time effects in C++ and GLSL.
         </p>
-        
+
         <h3>Alchemy Ambient Occlusion</h3>
         <p>The cow is there because it is the cursor for our voxel world in which this was implemented, that is, it marks where the changes to the terrain will happen.</p>
         <img class="picture" src="images/02564/W6-AO.PNG" />
-        
+
         <h3>Procedurally generated voxel world</h3>
         <img class="picture" src="images/02564/W4-Voxel3.PNG" />
         <img class="picture" src="images/02564/W4-Voxel4.PNG" />
-        
+
         <h3>Toon shading</h3>
         <img class="picture" src="images/02564/W5-Toon3.PNG" />
-        
+
         <h3>Shadow mapping</h3>
         <img class="picture" src="images/02564/W6-ShadowMap1.PNG" />
-        
+
         <h3>Procedurally generated tree</h3>
         <img class="picture" src="images/02564/W2-Tree.PNG" />
-        
+
         <h3>Single-pass wireframe shader</h3>
         <img class="picture" src="images/02564/W1-Wireframe.png" />
-        
+
         <a name="rendering"><h2>02562 Rendering</h2></a>
         <p>In this course we implement a variety of ray-tracing techniques using C++.</p>
-        
+
         <h3>Ambient occlusion</h3>
         <p>Unfortunately not the most optimal scene for this, but due to time restrictions we were not able to get it working with arbitrary scenes.</p>
         <img class="picture" src="images/02562/ProperSkyLight.PNG" />
-        
+
         <h3>Photon mapping</h3>
         <img class="picture" src="images/02562/PhotonMapping.PNG" />
-        
+
         <h3>Absorption</h3>
         <img class="picture" src="images/02562/Absorption.PNG" />
-        
+
         <h3>Radiosity</h3>
         <img class="picture" src="images/02562/Radiosity.PNG" />
     </div>
-    
+
 </body>
 
 </html>
